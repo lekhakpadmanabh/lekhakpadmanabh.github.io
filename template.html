@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="assets/js/angular/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/maincontroller.js"></script>
     <title>My Blog</title>
@@ -18,11 +19,7 @@
 
     <!-- Custom CSS -->
     <link href="assets/css/simple-sidebar.css" rel="stylesheet">
-    
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -39,12 +36,17 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand" >
                     <a href="#">
-                        Start Bootstrap
+                        Padmanabh's Blog
                     </a>
                 </li>
                 <li>
-                <input type="text" ng-model="query" 
-                  style="height:30px;border-radius:10px;">
+                <div class="input-group">
+                <input type="search" ng-model="query"
+                  placeholder="Search..."
+                  style="height:30px;border: 1px inset grey;">
+                </div>
+                
+                
                                 </li>
                 <li ng-repeat="note in data.notes | filter:query">
                     <a href="#" ng-click="setActive(note.id)">{{note.title}}</a>
@@ -59,11 +61,13 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-align-justify" style="font-size: 1.2em"></span></a>
                         <h1>{{data.notes[selectedNoteId].title}}</h1>
-                        {{data.notes[selectedNoteId].content}}
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                        
-                        
+                        <div 
+                        data-ng-bind-html="data.notes[selectedNoteId].content">
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -74,10 +78,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery/jquery-1.11.0.js"></script>
+    <script src="assets/js/jquery/jquery-1.11.0.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
