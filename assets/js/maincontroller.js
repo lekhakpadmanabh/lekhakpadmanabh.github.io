@@ -3,7 +3,7 @@ app.controller("MainController", function($scope, $http){
   $scope.setActive = function(id) {
     $scope.selectedNoteId = id;
   };
-  $http.get('data.json').then(function(rest){
+  $http.get('data.json').then(function(res){
     $scope.data = res.data
   });
   
