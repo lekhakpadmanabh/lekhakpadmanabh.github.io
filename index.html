@@ -1,1 +1,111 @@
-testing testing <a href="./template.html">cl</a> 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="assets/js/angular/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/maincontroller.js"></script>
+    <title>My Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/simple-sidebar.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="MyNotesApp" ng-controller='MainController'>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand" >
+                    <a href="#">
+                        Padmanabh's Blog
+                    </a>
+                </li>
+                <li>
+                <div class="input-group">
+                <input type="search" ng-model="query"
+                  placeholder="&nbsp;Search..."
+                  style="height:30px;border: 1px inset grey;">
+                </div>
+                
+                
+                                </li>
+                <li ng-repeat="note in data.notes | filter:query">
+                    <a href="#" ng-click="setActive(note.id)">{{note.title}}</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-align-justify" style="font-size: 1.2em"></span></a>
+                        <h1>{{data.notes[selectedNoteId].title}}</h1>
+                        <hr>
+                        <div 
+                        data-ng-bind-html="data.notes[selectedNoteId].content">
+                        </div>
+                        <hr>
+                        <div id="posted-on">
+                        <p class="text-right">
+                        {{data.notes[selectedNoteId].date_created}}
+                        </p>
+                        </div>
+                        <div id="tags">
+                        <span
+                        ng-repeat="tag in data.notes[selectedNoteId].tags">
+                        <span 
+                        class="label label-default">
+                        {{tag}}
+                        </span>&nbsp;
+                        </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="assets/js/jquery/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
