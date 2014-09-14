@@ -58,7 +58,7 @@ and that's all.
 print "code blocks"
 ```
 
-Images: ![wwgd](images/wwgd.png)
+![wwgd](images/wwgd.png)
 
 
 
@@ -68,6 +68,8 @@ Images: ![wwgd](images/wwgd.png)
 2. Generate standalone html for permalinking
 3. Wiki features-- revision history, etc.
 4. Add ipython notebook support.
+5. Write Tests
+6. Add some docs
 
 
 Created on 14-09-2014 23:41:31
