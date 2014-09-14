@@ -5,7 +5,7 @@ Major issues to be fixed before release:
 * JSON file is appended for each edit, this should not happen
 * Why are posts listed in reverse Chronological Order?
 
-made a chgange...
+made a chgange..
 
 
 
