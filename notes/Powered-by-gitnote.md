@@ -45,6 +45,8 @@ and that's all.
 
 ## Supported Markdown Features
 
+###Lists
+
 * *italics*
 * __bold__
 * unordered lists
@@ -52,15 +54,19 @@ and that's all.
 1. Ordered
 2. List
 
->Block Quotes
+###Blockquote
+
+>Be the change you want to see in the world - Gandhi
+
+
+###Codeblocks and syntax highlighting
 
 ```python
 print "code blocks"
 ```
 
-![wwgd](images/wwgd.png)
-
-
+###Images
+![Starry Skies](images/vangogh.jpg)
 
 ## To Do
 
@@ -71,6 +77,12 @@ print "code blocks"
 5. Write Tests
 6. Add some docs
 
+__Issues__
 
-Created on 14-09-2014 23:41:31
+1. Investigate changed files issue
+2. Display posts in reverse chronology
+
+
+
+Created on 16-09-2014 07:32:15
 Tags:python,angular,github, git
