@@ -2,6 +2,18 @@
 
 This blog is "powered" by [GitNote](lekhakpadmanabh.github.io) - a command line note management utility I wrote up quickly to cater specifically to my requirements. There are a couple of rough edges but it is mostly functional. At this point I cannot recommend anyone to use it, mainly because it is being built and tested on github pages, which forbids angular's routing-- which means no permalinking to individual articles. When I was writing it this wasn't a concern for me, but I will probably write its own cusotm backend one of these days.
 
+## To Do
+
+1. Create an extension to python-markdown for handling image sizes
+2. Add logging
+3. Make the code root directory-independent
+1. If user changes title, rename the file
+2. Generate standalone html for permalinking
+3. Wiki features-- revision history, etc.
+4. Add ipython notebook support.
+5. Write Tests
+6. Add some docs
+
 ##Usage
 
 Notes can be made inline or in markdown files, which are stored in a notes/ folder. Python then asks git for changes in this folder, parses the file, converts it file to html, puts them in a nice json file which is then used by angular on the frontend. For a detailed README visit 
@@ -68,14 +80,7 @@ print "code blocks"
 ###Images
 ![Starry Skies](images/vangogh.jpg)
 
-## To Do
 
-1. If user changes title, rename the file
-2. Generate standalone html for permalinking
-3. Wiki features-- revision history, etc.
-4. Add ipython notebook support.
-5. Write Tests
-6. Add some docs
 
 __Issues__
 
