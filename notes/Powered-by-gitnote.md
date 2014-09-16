@@ -12,7 +12,7 @@ This blog is "powered" by [GitNote](lekhakpadmanabh.github.io) - a command line 
 3. Wiki features-- revision history, etc.
 4. Add ipython notebook support.
 5. Write Tests
-6. Add some docs
+6. Add some docs 
 
 ##Usage
 
