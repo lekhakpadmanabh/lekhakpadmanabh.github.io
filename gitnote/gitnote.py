@@ -29,7 +29,9 @@ class GitHandler:
             return None
 
     def add(self):
-        subprocess.call(['git','add',self.repo_root + '/notes/'])
+        subprocess.call(['git','add','--ignore-removal',self.repo_root + '/notes/'])
+        subprocess.call(['git','add','--ignore-removal',self.repo_root + '/data.json'])
+        subprocess.call(['git','add','--ignore-removal',self.repo_root + '/images/'])
 
     def commit(self,message):
         subprocess.Popen(['git','--no-pager','commit','-m',message])
@@ -100,9 +102,8 @@ class NoteDB:
 
     def new_id(self):
         try:
-            lngth = len(self.data['notes'])
             maxid = max([note['id'] for note in self.data['notes']])
-            return max( lngth, maxid)
+            return maxid+1
         except ValueError:
             return 0
 
@@ -132,10 +133,8 @@ class NoteDB:
                 self.data['notes'].append(self.note_to_dict(note))
                 self.write_data(self.data)
             else:
-                print "----------"
                 for i,n in enumerate(self.data['notes']):
                     if note.title == n['title']:
-                        print "----------"
                         self.data['notes'][i] = self.note_to_dict(note)
                         self.write_data(self.data)
         else: 
@@ -190,19 +189,19 @@ def build():
 
     git = GitHandler(os.path.dirname(os.getcwd()))
     git.add()
-    git.commit("Gitnote commit")
+    #git.commit("Gitnote commit")
     changed_files = git.changed_files()
     for filename in changed_files:
         if filename[-3:] == '.md':
             filename = '../' + filename
             if os.path.isfile(filename):
-                print "-----"
                 title,body,date,tags = parse_md(filename)
                 nt = Note(title,body,tags,date)
                 ndb = NoteDB()
                 ndb.post_entry(nt)
 
 def dispatch_method(args):
+
     if args['mode'] == "inline":
         inline_note(args['title'],args['body'],args['tags'].split(','))
 
