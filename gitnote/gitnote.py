@@ -1,3 +1,8 @@
+############################################
+# DEPRECIATED: SEE NEW VERSION
+# https://github.com/lekhakpadmanabh/gitNote
+############################################
+
 import subprocess
 import os
 import json
@@ -9,6 +14,8 @@ from slugify import slugify
 import codecs
 
 class GitHandler:
+
+
     def __init__(self,repo_path):
         self.repo_root = self.set_repo(repo_path)
 
